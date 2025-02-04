@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="header">Header</div>
+    <div class="content">
+        <div class="left">Sidebar</div>
+        <div class="right">
+            <div class="maincontent">Main Content</div>
+            <div class="extracont">Extra Content</div>
+        </div>
+    </div>
+    <div class="footer">Footer</div>
+    <div class="popup-overlay"></div>
+<div class="popup">
+    <button class="close-button">✖</button>
+    I am popup
+</div>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+<script>
+  $(document).ready(function () {
+    $(".footer").click(function () {
+        $(".popup, .popup-overlay").fadeIn(10).addClass("show"); // Fast fade-in, then transition
+        $("body").css("overflow", "hidden"); // Disable scrolling
+    });
+
+    $(".close-button, .popup-overlay").click(function () {
+        $(".popup, .popup-overlay").removeClass("show"); // Remove class for smooth exit
+        setTimeout(() => {
+            $(".popup, .popup-overlay").fadeOut(200); // Hide after transition
+            $("body").css("overflow", "auto"); // Enable scrolling
+        }, 300);
+    });
+});
+   
+</script>
+</body>
+</html>        
